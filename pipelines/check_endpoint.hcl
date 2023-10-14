@@ -32,7 +32,6 @@ pipeline "check_endpoint" {
 
   }
 
-
   output "ip_report" {
     description = "Report related to IP address."
     value       = step.http.check_endpoint.response_body
