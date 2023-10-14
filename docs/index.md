@@ -16,8 +16,8 @@ Run pipelines and use triggers for AbuseIPDB resources.
 
 ## Documentation
 
-- **[Pipelines →](https://hub.flowpipe.io/mods/turbot/okta/pipelines)**
-- **[Triggers →](https://hub.flowpipe.io/mods/turbot/okta/triggers)**
+- **[Pipelines →](https://hub.flowpipe.io/mods/turbot/abuseipdb/pipelines)**
+- **[Triggers →](https://hub.flowpipe.io/mods/turbot/abuseipdb/triggers)**
 
 ## Getting started
 
@@ -63,7 +63,7 @@ Pipelines have [input variables](https://flowpipe.io/docs/using-flowpipe/mod-var
 - Pass in a value on the command line:
 
   ```shell
-  flowpipe pipeline run check_endpoint --pipeline-arg api_key="00BxxxxxxxxxQMAdqizwE2OgVcS7N9UHb"
+  flowpipe pipeline run check_endpoint --pipeline-arg api_key="bfc6f1c423b8b58xxxxxxxx9a85cda98f313c3d389126de0d" --pipeline-arg ip_address="43.139.89.188"
   ```
 
 These are only some of the ways you can set variables. For a full list, please see [Passing Input Variables](https://flowpipe.io/docs/using-flowpipe/mod-variables#passing-input-variables).
