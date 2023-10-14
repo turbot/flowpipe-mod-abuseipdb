@@ -1,5 +1,5 @@
 pipeline "get_black_list_ips" {
-  description = "Retrieve the blacklist from AbuseIPDB."
+  description = "Retrieve list of the most reported IP addresses."
 
   param "api_key" {
     type    = string
@@ -16,7 +16,6 @@ pipeline "get_black_list_ips" {
     }
 
   }
-
 
   output "blacklist" {
     description = "Blacklist from AbuseIPDB."

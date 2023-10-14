@@ -1,5 +1,5 @@
 pipeline "report_endpoint_abuse" {
-  description = "Report an IP address to AbuseIPDB."
+  description = "Report an IP address."
 
   param "api_key" {
     type    = string

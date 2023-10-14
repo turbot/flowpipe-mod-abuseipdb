@@ -1,5 +1,5 @@
 pipeline "endpoint_reports" {
-  description = "Report IP address."
+  description = "Reports endpoint."
 
   param "api_key" {
     type    = string

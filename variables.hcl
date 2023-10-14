@@ -1,6 +1,6 @@
 variable "api_key" {
   type        = string
-  description = "The abuseipdb.io personal access token to authenticate to the abuseipdb APIs."
+  description = "The api key token to authenticate to the AbuseIPDB APIs."
   default     = ""
 }
 
@@ -12,19 +12,19 @@ variable "max_age_in_days" {
 
 variable "ip_address" {
   type        = string
-  description = "IP Address to check."
+  description = "Endpoint IP Address to check."
   default     = ""
 }
 
 variable "abuse_ip_address" {
   type        = string
-  description = "IP Address to raise abuse."
+  description = "Endpoint IP Address to report abuse."
   default     = ""
 }
 
 variable "categories" {
   type        = list(number)
-  description = "Various categories to check detail report of the IP."
+  description = "Categories to check detail report of the Endpoint IP."
   default     = []
 }
 

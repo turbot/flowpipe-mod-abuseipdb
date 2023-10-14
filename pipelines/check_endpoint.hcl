@@ -1,5 +1,5 @@
 pipeline "check_endpoint" {
-  description = "Check IP address."
+  description = "Check Endpoint."
 
   param "api_key" {
     type    = string
