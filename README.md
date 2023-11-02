@@ -38,7 +38,7 @@ flowpipe service start
 Run a pipeline:
 
 ```sh
-flowpipe pipeline run check_endpoint
+flowpipe pipeline run check_ip
 ```
 
 ### Credentials
@@ -53,7 +53,7 @@ Pipelines have [input variables](https://flowpipe.io/docs/using-flowpipe/mod-var
 - Pass in a value on the command line:
 
   ```shell
-  flowpipe pipeline run check_endpoint --pipeline-arg api_key="00BxxxxxxxxxQMAdqizwE2OgVcS7N9UHb"
+  flowpipe pipeline run check_ip --pipeline-arg api_key="bfc6f1c423b8b58xxxxxxxx9a85cda98f313c3d389126de0d" --pipeline-arg ip_address='127.0.0.1'
   ```
 
 These are only some of the ways you can set variables. For a full list, please see [Passing Input Variables](https://flowpipe.io/docs/using-flowpipe/mod-variables#passing-input-variables).
@@ -69,4 +69,4 @@ Please see the [contribution guidelines](https://github.com/turbot/flowpipe/blob
 Want to help but not sure where to start? Pick up one of the `help wanted` issues:
 
 - [Flowpipe](https://github.com/turbot/flowpipe/labels/help%20wanted)
-- [AbuseIPDB Library Mod](https://github.com/turbot/flowpipe-mod-abuseipdb/labels/help%20wanted)
+- [AbuseIPDB Mod](https://github.com/turbot/flowpipe-mod-abuseipdb/labels/help%20wanted)
