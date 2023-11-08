@@ -28,7 +28,7 @@ pipeline "get_blacklist_ips" {
     })
   }
 
-  output "blacklist" {
+  output "report" {
     description = "Blacklist details."
     value       = step.http.get_blacklist_ips.response_body
   }

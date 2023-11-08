@@ -7,7 +7,7 @@ mod "abuseipdb" {
   categories    = ["abuseipdb", "library"]
 
   opengraph {
-    title       = "AbuseIPDB Library Mod for Flowpipe"
+    title       = "AbuseIPDB"
     description = "Run pipelines to supercharge your AbuseIPDB workflows using Flowpipe."
     image       = "/images/flowpipe/mods/turbot/abuseipdb-social-graphic.png"
   }

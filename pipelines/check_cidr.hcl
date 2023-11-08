@@ -17,7 +17,6 @@ pipeline "check_cidr" {
   param "max_age_in_days" {
     type        = number
     default     = 30
-    optional    = true
     description = "Maximum age in days for the reports to retrieve. Defaults to 30 days."
   }
 

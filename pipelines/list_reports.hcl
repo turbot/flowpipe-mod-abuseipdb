@@ -16,25 +16,11 @@ pipeline "list_reports" {
   param "max_age_in_days" {
     type        = number
     default     = 30
-    optional    = true
     description = "Limits the age of reports to retrieve. Defaults to 30 days."
   }
 
-  param "page" {
-    type        = number
-    default     = 1
-    optional    = true
-    description = "The page number of results to retrieve. Defaults to page 1."
-  }
-
-  param "per_page" {
-    type        = number
-    default     = 25
-    optional    = true
-    description = "The number of reports per page. Defaults to 25 reports per page."
-  }
-
   step "http" "list_reports" {
+
     method = "get"
     url    = "https://api.abuseipdb.com/api/v2/reports"
 
@@ -44,9 +30,8 @@ pipeline "list_reports" {
     }
 
     request_body = jsonencode({
-      ipAddress = param.ip_address
-      page      = param.page
-      perPage   = param.per_page
+      ipAddress    = param.ip_address
+      maxAgeInDays = param.max_age_in_days
     })
   }
 
