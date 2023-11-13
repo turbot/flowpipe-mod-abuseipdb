@@ -7,8 +7,6 @@ A collection of [Flowpipe](https://flowpipe.io) pipelines that can be used to:
 - Get blacklisted IPs
 - And more!
 
-![flowpipe_pipeline_run](docs/images/flowpipe_pipeline_run.png)
-
 ## Documentation
 
 - **[Pipelines →](https://hub.flowpipe.io/mods/turbot/abuseipdb/pipelines)**
