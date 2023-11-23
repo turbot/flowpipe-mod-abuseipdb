@@ -30,7 +30,7 @@ pipeline "list_reports" {
 
     request_body = jsonencode({
       ipAddress    = param.ip_address
-      maxAgeInDays = 30
+      maxAgeInDays = param.max_age_in_days
       page         = 1
       perPage      = 100
     })
