@@ -1,3 +1,4 @@
+# usage: flowpipe pipeline run get_blacklist_ips --arg confidence_minimum=100
 pipeline "get_blacklist_ips" {
   title       = "Get Blacklist IPs"
   description = "Get a list of the most reported IP addresses with an abuse confidence score above a minimum."

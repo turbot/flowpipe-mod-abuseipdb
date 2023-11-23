@@ -1,6 +1,6 @@
-// usage: flowpipe pipeline run check_cidr --pipeline-arg cidr='127.0.0.1/24'
-pipeline "check_cidr" {
-  title       = "Check CIDR Range"
+# usage: flowpipe pipeline run check_cidr_report --arg cidr='127.0.0.1/24'
+pipeline "check_cidr_report" {
+  title       = "Check CIDR Range Report"
   description = "Get information about IPs in a CIDR range."
 
   param "api_key" {
@@ -20,7 +20,7 @@ pipeline "check_cidr" {
     description = "Maximum age in days for the reports to retrieve. Defaults to 30 days."
   }
 
-  step "http" "check_cidr" {
+  step "http" "check_cidr_report" {
     method = "get"
     url    = "https://api.abuseipdb.com/api/v2/check-block"
 
@@ -36,7 +36,7 @@ pipeline "check_cidr" {
   }
 
   output "report" {
-    description = "CIDR Report details."
-    value       = step.http.check_cidr.response_body
+    description = "CIDR report details."
+    value       = step.http.check_cidr_report.response_body
   }
 }
