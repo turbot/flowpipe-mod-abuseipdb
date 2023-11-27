@@ -20,7 +20,6 @@ pipeline "list_reports" {
   }
 
   step "http" "list_reports" {
-
     method = "get"
     url    = "https://api.abuseipdb.com/api/v2/reports"
 
@@ -32,6 +31,8 @@ pipeline "list_reports" {
     request_body = jsonencode({
       ipAddress    = param.ip_address
       maxAgeInDays = param.max_age_in_days
+      page         = 1
+      perPage      = 100
     })
   }
 
