@@ -1,12 +1,11 @@
-# usage: flowpipe pipeline run check_cidr_report --arg cidr='127.0.0.1/24'
 pipeline "check_cidr_report" {
   title       = "Check CIDR Range Report"
   description = "Get information about IPs in a CIDR range."
 
   param "api_key" {
     type        = string
-    default     = var.api_key
     description = local.api_key_param_description
+    default     = var.api_key
   }
 
   param "cidr" {
@@ -16,8 +15,8 @@ pipeline "check_cidr_report" {
 
   param "max_age_in_days" {
     type        = number
-    default     = 30
     description = "Maximum age in days for the reports to retrieve. Defaults to 30 days."
+    default     = 30
   }
 
   step "http" "check_cidr_report" {

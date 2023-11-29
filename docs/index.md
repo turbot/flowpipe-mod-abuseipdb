@@ -10,7 +10,6 @@ A collection of [Flowpipe](https://flowpipe.io) pipelines that can be used to:
 ## Documentation
 
 - **[Pipelines →](https://hub.flowpipe.io/mods/turbot/abuseipdb/pipelines)**
-- **[Triggers →](https://hub.flowpipe.io/mods/turbot/abuseipdb/triggers)**
 
 ## Getting started
 
@@ -35,15 +34,15 @@ cd flowpipe-mod-abuseipdb
 Configure your credentials:
 
 ```sh
-cp flowpipe.pvars.example flowpipe.pvars
-vi flowpipe.pvars
+cp flowpipe.fpvars.example flowpipe.fpvars
+vi flowpipe.fpvars
 ```
 
-It's recommended to configure credentials through [input variables](https://flowpipe.io/docs/using-flowpipe/mod-variables) by setting them in the `flowpipe.pvars` file.
+It's recommended to configure credentials through [input variables](https://flowpipe.io/docs/using-flowpipe/mod-variables) by setting them in the `flowpipe.fpvars` file.
 
 **Note:** Credentials can also be passed in each pipeline run with `--pipeline-args api_key=bfc6f1c42dsfsdfdsfsdf327b26977977b2bad9ac4adfdsfdsfsdda98f313c3d389126de0d`.
 
-Additional input variables may be defined in the mod's `variables.hcl` file that can be configured to better match your environment and requirements.
+Additional input variables may be defined in the mod's `variables.fp` file that can be configured to better match your environment and requirements.
 
 Variables with defaults set do not need to be explicitly set, but it may be helpful to override them.
 
@@ -52,7 +51,7 @@ Variables with defaults set do not need to be explicitly set, but it may be help
 Start the Flowpipe server to get started:
 
 ```sh
-flowpipe service start
+flowpipe server
 ```
 
 Run a pipeline:
@@ -66,10 +65,10 @@ flowpipe pipeline run get_blacklist_ips
 To pass values into pipeline [parameters](https://flowpipe.io/docs/using-flowpipe/pipeline-parameters), use the following syntax:
 
 ```sh
-flowpipe pipeline run check_ip --pipeline-arg ip_address='76.76.21.21'
+flowpipe pipeline run check_ip --arg ip_address='76.76.21.21'
 ```
 
-Multiple pipeline args can be passed in with separate `--pipeline-arg` flags.
+Multiple pipeline args can be passed in with separate `--arg` flags.
 
 For more information on passing arguments, please see [Pipeline Args](https://flowpipe.io/docs/using-flowpipe/pipeline-arguments).
 

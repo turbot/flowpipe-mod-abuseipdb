@@ -1,4 +1,3 @@
-# usage: flowpipe pipeline run check_ip_report --arg ip_address='127.0.0.1'
 pipeline "check_ip_report" {
   title       = "Check IP Address Report"
   description = "Get information about an IP (v4 or v6)."
@@ -16,8 +15,8 @@ pipeline "check_ip_report" {
 
   param "max_age_in_days" {
     type        = number
-    default     = 30
     description = "Maximum age in days for the reports to retrieve. Defaults to 30 days."
+    default     = 30
   }
 
   step "http" "check_ip_report" {

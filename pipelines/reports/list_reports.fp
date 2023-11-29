@@ -15,8 +15,14 @@ pipeline "list_reports" {
 
   param "max_age_in_days" {
     type        = number
-    default     = 30
     description = "Limits the age of reports to retrieve. Defaults to 30 days."
+    default     = 30
+  }
+
+  param "per_page" {
+    type        = number
+    description = "Limits the number of data per page."
+    default     = 100
   }
 
   step "http" "list_reports" {
@@ -31,13 +37,17 @@ pipeline "list_reports" {
     request_body = jsonencode({
       ipAddress    = param.ip_address
       maxAgeInDays = param.max_age_in_days
-      page         = 1
-      perPage      = 100
+      perPage      = param.per_page
     })
+
+    loop {
+      until = result.response_body.data.nextPageUrl == null
+      url   = result.response_body.data.nextPageUrl
+    }
   }
 
   output "reports" {
     description = "List of reports filed against the specified IP address."
-    value       = step.http.list_reports.response_body
+    value       = step.http.list_reports
   }
 }
