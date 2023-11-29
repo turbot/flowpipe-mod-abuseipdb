@@ -54,6 +54,6 @@ pipeline "report_ip_address" {
 
   output "abuse_report" {
     description = "Confirmation and details of the submitted abuse report."
-    value       = step.http.report_ip_address
+    value       = step.http.report_ip_address.response_body
   }
 }

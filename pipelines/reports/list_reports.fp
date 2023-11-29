@@ -48,6 +48,6 @@ pipeline "list_reports" {
 
   output "reports" {
     description = "List of reports filed against the specified IP address."
-    value       = step.http.list_reports
+    value       = flatten([for page, reports in step.http.list_reports : reports.response_body.data.results])
   }
 }
