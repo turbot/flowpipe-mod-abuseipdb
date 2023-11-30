@@ -1,7 +1,6 @@
-# usage: flowpipe pipeline run check_ip_report --arg ip_address='127.0.0.1'
-pipeline "check_ip_report" {
-  title       = "Check IP Address Report"
-  description = "Get information about an IP (v4 or v6)."
+pipeline "check_ip_address" {
+  title       = "Check IP Address"
+  description = "Get information about an IP address (v4 or v6)."
 
   param "api_key" {
     type        = string
@@ -16,11 +15,11 @@ pipeline "check_ip_report" {
 
   param "max_age_in_days" {
     type        = number
-    default     = 30
     description = "Maximum age in days for the reports to retrieve. Defaults to 30 days."
+    default     = 30
   }
 
-  step "http" "check_ip_report" {
+  step "http" "check_ip_address" {
     method = "get"
     url    = "https://api.abuseipdb.com/api/v2/check"
 
@@ -35,8 +34,8 @@ pipeline "check_ip_report" {
     })
   }
 
-  output "report" {
-    description = "IP report details."
-    value       = step.http.check_ip_report.response_body
+  output "ip_report" {
+    description = "IP address report details."
+    value       = step.http.check_ip_address.response_body.data
   }
 }

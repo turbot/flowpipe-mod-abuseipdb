@@ -1,4 +1,4 @@
-pipeline "list_reports" {
+pipeline "list_ip_address_reports" {
   title       = "List Reports"
   description = "Retrieves a list of abuse reports filed against a specific IP address."
 
@@ -15,11 +15,11 @@ pipeline "list_reports" {
 
   param "max_age_in_days" {
     type        = number
-    default     = 30
     description = "Limits the age of reports to retrieve. Defaults to 30 days."
+    default     = 30
   }
 
-  step "http" "list_reports" {
+  step "http" "list_ip_address_reports" {
     method = "get"
     url    = "https://api.abuseipdb.com/api/v2/reports"
 
@@ -31,13 +31,17 @@ pipeline "list_reports" {
     request_body = jsonencode({
       ipAddress    = param.ip_address
       maxAgeInDays = param.max_age_in_days
-      page         = 1
       perPage      = 100
     })
+
+    loop {
+      until = result.response_body.data.nextPageUrl == null
+      url   = result.response_body.data.nextPageUrl
+    }
   }
 
   output "reports" {
     description = "List of reports filed against the specified IP address."
-    value       = step.http.list_reports.response_body
+    value       = flatten([for page, reports in step.http.list_ip_address_reports : reports.response_body.data.results])
   }
 }

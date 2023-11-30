@@ -1,21 +1,20 @@
-# usage: flowpipe pipeline run get_blacklist_ips --arg confidence_minimum=100
-pipeline "get_blacklist_ips" {
-  title       = "Get Blacklist IPs"
+pipeline "list_blacklisted_ip_addresses" {
+  title       = "List Blacklisted IP Addresses"
   description = "Get a list of the most reported IP addresses with an abuse confidence score above a minimum."
 
   param "api_key" {
     type        = string
-    default     = var.api_key
     description = local.api_key_param_description
+    default     = var.api_key
   }
 
   param "confidence_minimum" {
     type        = number
-    default     = 90
     description = "Minimum confidence score. Defaults to 90."
+    default     = 90
   }
 
-  step "http" "get_blacklist_ips" {
+  step "http" "list_blacklisted_ip_addresses" {
     method = "get"
     url    = "https://api.abuseipdb.com/api/v2/blacklist"
 
@@ -29,8 +28,8 @@ pipeline "get_blacklist_ips" {
     })
   }
 
-  output "report" {
+  output "blacklisted_ip_addresses" {
     description = "Blacklist details."
-    value       = step.http.get_blacklist_ips.response_body
+    value       = step.http.list_blacklisted_ip_addresses.response_body
   }
 }

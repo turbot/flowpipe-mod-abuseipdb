@@ -4,8 +4,8 @@ pipeline "report_ip_address" {
 
   param "api_key" {
     type        = string
-    default     = var.api_key
     description = local.api_key_param_description
+    default     = var.api_key
   }
 
   param "offending_ip_address" {
@@ -20,14 +20,14 @@ pipeline "report_ip_address" {
 
   param "comment" {
     type        = string
-    optional    = true
     description = "A detailed description of the abusive behavior, including any relevant logs or evidence."
+    optional    = true
   }
 
   param "timestamp" {
     type        = string
-    optional    = true
     description = "The date and time of the observed abuse in ISO 8601 format (YYYY-MM-DDThh:mm:ss)."
+    optional    = true
   }
 
   step "http" "report_ip_address" {
@@ -49,9 +49,10 @@ pipeline "report_ip_address" {
       categories = param.categories
       comment    = param.comment
     })
+
   }
 
-  output "abuse_report" {
+  output "ip_address" {
     description = "Confirmation and details of the submitted abuse report."
     value       = step.http.report_ip_address.response_body
   }
