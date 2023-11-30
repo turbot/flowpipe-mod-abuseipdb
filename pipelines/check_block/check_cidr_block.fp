@@ -1,6 +1,6 @@
-pipeline "check_cidr_report" {
-  title       = "Check CIDR Range Report"
-  description = "Get information about IPs in a CIDR range."
+pipeline "check_cidr_block" {
+  title       = "Check CIDR Block"
+  description = "Get information about IPs in a CIDR block."
 
   param "api_key" {
     type        = string
@@ -19,7 +19,7 @@ pipeline "check_cidr_report" {
     default     = 30
   }
 
-  step "http" "check_cidr_report" {
+  step "http" "check_cidr_block" {
     method = "get"
     url    = "https://api.abuseipdb.com/api/v2/check-block"
 
@@ -34,8 +34,8 @@ pipeline "check_cidr_report" {
     })
   }
 
-  output "report" {
+  output "cidr_block_report" {
     description = "CIDR report details."
-    value       = step.http.check_cidr_report.response_body
+    value       = step.http.check_cidr_block.response_body.data
   }
 }

@@ -1,6 +1,6 @@
-pipeline "check_ip_report" {
-  title       = "Check IP Address Report"
-  description = "Get information about an IP (v4 or v6)."
+pipeline "check_ip_address" {
+  title       = "Check IP Address"
+  description = "Get information about an IP address (v4 or v6)."
 
   param "api_key" {
     type        = string
@@ -19,7 +19,7 @@ pipeline "check_ip_report" {
     default     = 30
   }
 
-  step "http" "check_ip_report" {
+  step "http" "check_ip_address" {
     method = "get"
     url    = "https://api.abuseipdb.com/api/v2/check"
 
@@ -34,8 +34,8 @@ pipeline "check_ip_report" {
     })
   }
 
-  output "report" {
-    description = "IP report details."
-    value       = step.http.check_ip_report.response_body
+  output "ip_report" {
+    description = "IP address report details."
+    value       = step.http.check_ip_address.response_body.data
   }
 }
