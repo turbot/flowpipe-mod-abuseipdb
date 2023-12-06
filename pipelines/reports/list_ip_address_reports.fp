@@ -4,8 +4,8 @@ pipeline "list_ip_address_reports" {
 
   param "cred" {
     type        = string
-    description = "Name for credentials to use. If not provided, the default credentials will be used."
-    default = "default"
+    description = local.cred_param_description
+    default     = "default"
   }
 
   param "ip_address" {

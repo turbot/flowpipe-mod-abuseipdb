@@ -1,4 +1,4 @@
 # Common descriptions
 locals {
-  api_key_param_description = "API key to authenticate requests with AbuseIPDB."
+  cred_param_description = "Name for credentials to use. If not provided, the default credentials will be used."
 }

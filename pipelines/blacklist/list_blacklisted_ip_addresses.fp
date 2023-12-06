@@ -4,8 +4,8 @@ pipeline "list_blacklisted_ip_addresses" {
 
   param "cred" {
     type        = string
-    description = "Name for credentials to use. If not provided, the default credentials will be used."
-    default = "default"
+    description = local.cred_param_description
+    default     = "default"
   }
 
   param "confidence_minimum" {
