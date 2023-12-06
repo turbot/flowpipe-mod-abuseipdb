@@ -2,10 +2,10 @@ pipeline "check_ip_address" {
   title       = "Check IP Address"
   description = "Get information about an IP address (v4 or v6)."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    default     = var.api_key
-    description = local.api_key_param_description
+    description = "Name for credentials to use. If not provided, the default credentials will be used."
+    default = "default"
   }
 
   param "ip_address" {
@@ -24,7 +24,7 @@ pipeline "check_ip_address" {
     url    = "https://api.abuseipdb.com/api/v2/check"
 
     request_headers = {
-      Key          = param.api_key
+      Key          = credential.abuseipdb[param.cred].api_key
       Content-Type = "application/json"
     }
 
