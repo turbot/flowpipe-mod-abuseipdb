@@ -2,6 +2,10 @@ pipeline "check_ip_address" {
   title       = "Check IP Address"
   description = "Get information about an IP address (v4 or v6)."
 
+  tags = {
+    type = "featured"
+  }
+
   param "cred" {
     type        = string
     description = local.cred_param_description

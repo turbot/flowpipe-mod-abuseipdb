@@ -2,6 +2,10 @@ pipeline "report_ip_address" {
   title       = "Report IP Address"
   description = "Submit a report for suspicious or malicious activity from an IP address."
 
+  tags = {
+    type = "featured"
+  }
+
   param "cred" {
     type        = string
     description = local.cred_param_description
