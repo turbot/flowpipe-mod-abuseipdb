@@ -24,13 +24,13 @@ pipeline "check_cidr_block" {
     url    = "https://api.abuseipdb.com/api/v2/check-block"
 
     request_headers = {
-      Key          = credential.abuseipdb[param.cred].api_key
       Content-Type = "application/json"
+      Key          = credential.abuseipdb[param.cred].api_key
     }
 
     request_body = jsonencode({
-      network      = param.cidr
       maxAgeInDays = param.max_age_in_days
+      network      = param.cidr
     })
   }
 

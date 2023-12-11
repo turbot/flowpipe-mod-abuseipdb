@@ -1,5 +1,5 @@
 pipeline "list_ip_address_reports" {
-  title       = "List Reports"
+  title       = "List IP Address Reports"
   description = "Retrieves a list of abuse reports filed against a specific IP address."
 
   param "cred" {
@@ -24,8 +24,8 @@ pipeline "list_ip_address_reports" {
     url    = "https://api.abuseipdb.com/api/v2/reports"
 
     request_headers = {
-      Key          = credential.abuseipdb[param.cred].api_key
       Content-Type = "application/json"
+      Key          = credential.abuseipdb[param.cred].api_key
     }
 
     request_body = jsonencode({

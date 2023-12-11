@@ -39,19 +39,19 @@ pipeline "report_ip_address" {
     url    = "https://api.abuseipdb.com/api/v2/report"
 
     request_headers = {
-      Key          = credential.abuseipdb[param.cred].api_key
       Content-Type = "application/json"
+      Key          = credential.abuseipdb[param.cred].api_key
     }
 
     request_body = param.timestamp != null ? jsonencode({
-      ip         = param.offending_ip_address
       categories = param.categories
       comment    = param.comment
+      ip         = param.offending_ip_address
       timestamp  = param.timestamp
       }) : jsonencode({
-      ip         = param.offending_ip_address
       categories = param.categories
       comment    = param.comment
+      ip         = param.offending_ip_address
     })
 
   }

@@ -3,12 +3,12 @@ mod "abuseipdb" {
   description   = "Run pipelines to supercharge your AbuseIPDB workflows using Flowpipe."
   color         = "#4e7e14"
   documentation = file("./docs/index.md")
-  icon          = "/images/flowpipe/mods/turbot/abuseipdb.svg"
+  icon          = "/images/mods/turbot/abuseipdb.svg"
   categories    = ["security"]
 
   opengraph {
     title       = "AbuseIPDB Mod for Flowpipe"
     description = "Run pipelines to supercharge your AbuseIPDB workflows using Flowpipe."
-    image       = "/images/flowpipe/mods/turbot/abuseipdb-social-graphic.png"
+    image       = "/images/mods/turbot/abuseipdb-social-graphic.png"
   }
 }

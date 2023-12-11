@@ -28,8 +28,8 @@ pipeline "check_ip_address" {
     url    = "https://api.abuseipdb.com/api/v2/check"
 
     request_headers = {
-      Key          = credential.abuseipdb[param.cred].api_key
       Content-Type = "application/json"
+      Key          = credential.abuseipdb[param.cred].api_key
     }
 
     request_body = jsonencode({

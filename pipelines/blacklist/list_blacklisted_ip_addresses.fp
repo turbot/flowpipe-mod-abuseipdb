@@ -10,7 +10,7 @@ pipeline "list_blacklisted_ip_addresses" {
 
   param "confidence_minimum" {
     type        = number
-    description = "Minimum confidence score. Defaults to 90."
+    description = "Minimum confidence score. Minimum is 25 and maximum is 100. Defaults to 90."
     default     = 90
   }
 
@@ -19,8 +19,8 @@ pipeline "list_blacklisted_ip_addresses" {
     url    = "https://api.abuseipdb.com/api/v2/blacklist"
 
     request_headers = {
-      Key          = credential.abuseipdb[param.cred].api_key
       Content-Type = "application/json"
+      Key          = credential.abuseipdb[param.cred].api_key
     }
 
     request_body = jsonencode({
