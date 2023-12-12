@@ -2,7 +2,7 @@ mod "abuseipdb" {
   title         = "AbuseIPDB"
   description   = "Run pipelines to supercharge your AbuseIPDB workflows using Flowpipe."
   color         = "#4e7e14"
-  documentation = file("./docs/index.md")
+  documentation = file("./README.md")
   icon          = "/images/mods/turbot/abuseipdb.svg"
   categories    = ["security"]
 
