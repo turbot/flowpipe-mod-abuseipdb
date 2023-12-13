@@ -2,10 +2,14 @@ pipeline "report_ip_address" {
   title       = "Report IP Address"
   description = "Submit a report for suspicious or malicious activity from an IP address."
 
-  param "api_key" {
+  tags = {
+    type = "featured"
+  }
+
+  param "cred" {
     type        = string
-    description = local.api_key_param_description
-    default     = var.api_key
+    description = local.cred_param_description
+    default     = "default"
   }
 
   param "offending_ip_address" {
@@ -35,19 +39,19 @@ pipeline "report_ip_address" {
     url    = "https://api.abuseipdb.com/api/v2/report"
 
     request_headers = {
-      Key          = param.api_key
       Content-Type = "application/json"
+      Key          = credential.abuseipdb[param.cred].api_key
     }
 
     request_body = param.timestamp != null ? jsonencode({
-      ip         = param.offending_ip_address
       categories = param.categories
       comment    = param.comment
+      ip         = param.offending_ip_address
       timestamp  = param.timestamp
       }) : jsonencode({
-      ip         = param.offending_ip_address
       categories = param.categories
       comment    = param.comment
+      ip         = param.offending_ip_address
     })
 
   }

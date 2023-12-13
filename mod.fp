@@ -1,14 +1,14 @@
 mod "abuseipdb" {
-  title         = "AbuseIPDB Library"
+  title         = "AbuseIPDB"
   description   = "Run pipelines to supercharge your AbuseIPDB workflows using Flowpipe."
   color         = "#4e7e14"
-  documentation = file("./docs/index.md")
-  icon          = "/images/flowpipe/mods/turbot/abuseipdb.svg"
-  categories    = ["abuseipdb", "library"]
+  documentation = file("./README.md")
+  icon          = "/images/mods/turbot/abuseipdb.svg"
+  categories    = ["security"]
 
   opengraph {
-    title       = "AbuseIPDB"
+    title       = "AbuseIPDB Mod for Flowpipe"
     description = "Run pipelines to supercharge your AbuseIPDB workflows using Flowpipe."
-    image       = "/images/flowpipe/mods/turbot/abuseipdb-social-graphic.png"
+    image       = "/images/mods/turbot/abuseipdb-social-graphic.png"
   }
 }
