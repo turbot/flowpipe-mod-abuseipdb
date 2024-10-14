@@ -17,25 +17,25 @@ brew tap turbot/tap
 brew install flowpipe
 ```
 
-### Credentials
+### Connections
 
 By default, the following environment variables will be used for authentication:
 
 - `ABUSEIPDB_API_KEY`
 
-You can also create `credential` resources in configuration files:
+You can also create `connection` resources in configuration files:
 
 ```sh
 vi ~/.flowpipe/config/abuseipdb.fpc
 ```
 
 ```hcl
-credential "abuseipdb" "abuseipdb_api_key" {
+connection "abuseipdb" "abuseipdb_api_key" {
   api_key = "bfc6f1c42dsfsdfdxxxx26977977b2xxxsfsdda98f313c3d389126de0d"
 }
 ```
 
-For more information on credentials in Flowpipe, please see [Managing Credentials](https://flowpipe.io/docs/run/credentials).
+For more information on connectionS in Flowpipe, please see [Managing Connections](https://flowpipe.io/docs/run/connections).
 
 ### Usage
 
@@ -98,10 +98,10 @@ Run a pipeline:
 flowpipe pipeline run check_ip_address --arg ip_address='76.76.21.21'
 ```
 
-To use a specific `credential`, specify the `cred` pipeline argument:
+To use a specific `connection`, specify the `conn` pipeline argument:
 
 ```sh
-flowpipe pipeline run check_ip_address --arg ip_address='76.76.21.21' --arg cred=abuseipdb_profile
+flowpipe pipeline run check_ip_address --arg ip_address='76.76.21.21' --arg conn=abuseipdb_profile
 ```
 
 ## Open Source & Contributing

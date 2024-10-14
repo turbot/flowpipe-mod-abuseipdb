@@ -2,10 +2,10 @@ pipeline "check_cidr_block" {
   title       = "Check CIDR Block"
   description = "Get information about IPs in a CIDR block."
 
-  param "cred" {
-    type        = string
-    description = local.cred_param_description
-    default     = "default"
+  param "conn" {
+    type        = connection.abuseipdb
+    description = local.conn_param_description
+    default     = connection.abuseipdb.default
   }
 
   param "cidr" {
@@ -25,7 +25,7 @@ pipeline "check_cidr_block" {
 
     request_headers = {
       Content-Type = "application/json"
-      Key          = credential.abuseipdb[param.cred].api_key
+      Key          = param.conn.api_key
     }
 
     request_body = jsonencode({

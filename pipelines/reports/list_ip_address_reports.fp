@@ -2,10 +2,10 @@ pipeline "list_ip_address_reports" {
   title       = "List IP Address Reports"
   description = "Retrieves a list of abuse reports filed against a specific IP address."
 
-  param "cred" {
-    type        = string
-    description = local.cred_param_description
-    default     = "default"
+  param "conn" {
+    type        = connection.abuseipdb
+    description = local.conn_param_description
+    default     = connection.abuseipdb.default
   }
 
   param "ip_address" {
@@ -25,7 +25,7 @@ pipeline "list_ip_address_reports" {
 
     request_headers = {
       Content-Type = "application/json"
-      Key          = credential.abuseipdb[param.cred].api_key
+      Key          = param.conn.api_key
     }
 
     request_body = jsonencode({

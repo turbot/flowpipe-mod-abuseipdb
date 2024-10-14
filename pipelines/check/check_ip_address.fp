@@ -3,13 +3,13 @@ pipeline "check_ip_address" {
   description = "Get information about an IP address (v4 or v6)."
 
   tags = {
-    type = "featured"
+    type = "recommended"
   }
 
-  param "cred" {
-    type        = string
-    description = local.cred_param_description
-    default     = "default"
+  param "conn" {
+    type        = connection.abuseipdb
+    description = local.conn_param_description
+    default     = connection.abuseipdb.default
   }
 
   param "ip_address" {
@@ -29,7 +29,7 @@ pipeline "check_ip_address" {
 
     request_headers = {
       Content-Type = "application/json"
-      Key          = credential.abuseipdb[param.cred].api_key
+      Key          = param.conn.api_key
     }
 
     request_body = jsonencode({
