@@ -101,7 +101,7 @@ flowpipe pipeline run check_ip_address --arg ip_address='76.76.21.21'
 To use a specific `connection`, specify the `conn` pipeline argument:
 
 ```sh
-flowpipe pipeline run check_ip_address --arg ip_address='76.76.21.21' --arg conn=abuseipdb_profile
+flowpipe pipeline run check_ip_address --arg ip_address='76.76.21.21' --arg conn=connection.abuseipdb.abuseipdb_profile
 ```
 
 ## Open Source & Contributing
